@@ -8,6 +8,7 @@ import FAQ from './components/FAQ';
 import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
 import SplashScreen from './components/SplashScreen';
+import Detection from './components/Detection';
 
 function App() {
   useEffect(() => {
@@ -22,6 +23,7 @@ function App() {
         <Hero />
         <Features />
         <HowItWorks />
+        <Detection />
         <Testimonials />
         <Download />
         <FAQ />

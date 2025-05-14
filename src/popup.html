@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GuardianScan</title>
+  <style>
+    body {
+      width: 350px;
+      padding: 16px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      margin: 0;
+      background: #f8fafc;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .logo {
+      width: 32px;
+      height: 32px;
+      color: #2563eb;
+    }
+
+    .title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #1e293b;
+      margin: 0;
+    }
+
+    .status-section {
+      background: white;
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .status-active {
+      color: #16a34a;
+      font-weight: 600;
+    }
+
+    .status-inactive {
+      color: #dc2626;
+      font-weight: 600;
+    }
+
+    button {
+      width: 100%;
+      padding: 8px 16px;
+      border-radius: 6px;
+      border: none;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    #toggle-protection {
+      background: #2563eb;
+      color: white;
+      margin-bottom: 8px;
+    }
+
+    #toggle-protection:hover {
+      background: #1d4ed8;
+    }
+
+    #start-scan {
+      background: #f8fafc;
+      border: 1px solid #2563eb;
+      color: #2563eb;
+    }
+
+    #start-scan:hover {
+      background: #f1f5f9;
+    }
+
+    button:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    .threats-section {
+      margin-top: 16px;
+    }
+
+    .threats-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #475569;
+      margin-bottom: 8px;
+    }
+
+    #threats-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    .threat-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 8px;
+      background: white;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+
+    .threat-icon {
+      font-size: 16px;
+    }
+
+    .threat-details {
+      flex: 1;
+      font-size: 12px;
+    }
+
+    .threat-details strong {
+      display: block;
+      color: #dc2626;
+    }
+
+    .threat-details span {
+      display: block;
+      color: #64748b;
+      word-break: break-all;
+    }
+
+    .threat-details small {
+      display: block;
+      color: #94a3b8;
+      margin-top: 4px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .stat-item {
+      background: white;
+      padding: 8px;
+      border-radius: 6px;
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 18px;
+      font-weight: 600;
+      color: #2563eb;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: #64748b;
+    }
+
+    .no-threats {
+      text-align: center;
+      color: #64748b;
+      padding: 16px;
+    }
+
+    #scan-date {
+      text-align: center;
+      font-size: 12px;
+      color: #64748b;
+      margin-top: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+    </svg>
+    <h1 class="title">GuardianScan</h1>
+  </div>
+
+  <div class="status-section">
+    <div id="protection-status" class="status-active">Proteção Ativa</div>
+  </div>
+
+  <button id="toggle-protection">Desativar Proteção</button>
+  <button id="start-scan">Iniciar Varredura</button>
+
+  <div class="stats">
+    <div class="stat-item">
+      <div id="scripts-monitored" class="stat-value">0</div>
+      <div class="stat-label">Scripts Monitorados</div>
+    </div>
+    <div class="stat-item">
+      <div id="threats-blocked" class="stat-value">0</div>
+      <div class="stat-label">Ameaças Bloqueadas</div>
+    </div>
+  </div>
+
+  <div class="threats-section">
+    <div class="threats-title">Ameaças Detectadas</div>
+    <ul id="threats-list">
+      <li class="no-threats">Nenhuma ameaça detectada</li>
+    </ul>
+  </div>
+
+  <div id="scan-date"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

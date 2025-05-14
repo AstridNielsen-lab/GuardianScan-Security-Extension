@@ -31,10 +31,13 @@ const Navbar: React.FC = () => {
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
           <a href="#features" className={`${isScrolled ? 'text-gray-700' : 'text-white'} hover:text-blue-500 transition-colors`}>
-            Features
+            Recursos
           </a>
           <a href="#how-it-works" className={`${isScrolled ? 'text-gray-700' : 'text-white'} hover:text-blue-500 transition-colors`}>
-            How It Works
+            Como Funciona
+          </a>
+          <a href="#detection" className={`${isScrolled ? 'text-gray-700' : 'text-white'} hover:text-blue-500 transition-colors`}>
+            Detecção
           </a>
           <a href="#faq" className={`${isScrolled ? 'text-gray-700' : 'text-white'} hover:text-blue-500 transition-colors`}>
             FAQ
@@ -43,7 +46,7 @@ const Navbar: React.FC = () => {
             href="#download" 
             className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-full transition-colors font-medium"
           >
-            Download Now
+            Download
           </a>
         </div>
 
@@ -68,14 +71,21 @@ const Navbar: React.FC = () => {
             className="text-gray-700 hover:text-blue-600 py-2" 
             onClick={() => setIsMenuOpen(false)}
           >
-            Features
+            Recursos
           </a>
           <a 
             href="#how-it-works" 
             className="text-gray-700 hover:text-blue-600 py-2" 
             onClick={() => setIsMenuOpen(false)}
           >
-            How It Works
+            Como Funciona
+          </a>
+          <a 
+            href="#detection" 
+            className="text-gray-700 hover:text-blue-600 py-2" 
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Detecção
           </a>
           <a 
             href="#faq" 
@@ -89,7 +99,7 @@ const Navbar: React.FC = () => {
             className="bg-blue-600 text-white py-2 px-4 rounded-md text-center font-medium"
             onClick={() => setIsMenuOpen(false)}
           >
-            Download Now
+            Download
           </a>
         </div>
       )}
